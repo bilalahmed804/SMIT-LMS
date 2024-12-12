@@ -1,4 +1,5 @@
-import MenuBar from "../admin/Components/MenuBar";
+import MenuBar from "../students/Components/MenuBar";
+import DashboardHeader from "./Components/DashboardHeader";
 
 export default function Students(){
     return(
@@ -8,6 +9,7 @@ export default function Students(){
         </div>
         <div>
         <h1>Student page</h1>
+            <DashboardHeader/>
 
         </div>
 

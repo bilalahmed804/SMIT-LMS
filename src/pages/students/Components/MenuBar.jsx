@@ -13,67 +13,80 @@ const items = [
   {
     key: '1',
     icon: <PieChartOutlined />,
-    label: 'Option 1',
-  },
-  {
-    key: '2',
-    icon: <DesktopOutlined />,
-    label: 'Option 2',
-  },
-  {
-    key: '3',
-    icon: <ContainerOutlined />,
-    label: 'Option 3',
-  },
-  {
-    key: 'sub1',
-    label: 'Navigation One',
-    icon: <MailOutlined />,
+    label: 'Dashboard',
     children: [
       {
-        key: '5',
-        label: 'Option 5',
+        key: '29',
+        label: 'Courses Enrolled',
       },
       {
-        key: '6',
-        label: 'Option 6',
+        key: '0',
+        label: 'Pending Assignments',
       },
       {
-        key: '7',
-        label: 'Option 7',
+        key: '19',
+        label: 'Recent Grades',
+      },
+    ],
+  },
+  {
+    key: 'sub9',
+    label: 'Assignments',
+    icon: <DesktopOutlined />,
+    children: [
+      {
+        key: '99',
+        label: 'View Assignments',
       },
       {
-        key: '8',
-        label: 'Option 8',
+        key: '91',
+        label: 'Pending Assignments',
+      },
+      {
+        key: '11',
+        label: 'Submit Assignment',
+      },
+      {
+        key: '12',
+        label: 'Past Assignments',
+      },
+    ],
+  },
+  {
+    key: 'sub8',
+    label: 'Courses',
+    icon: <AppstoreOutlined />,
+    children: [
+      {
+        key: '21',
+        label: 'My Courses',
+      },
+      {
+        key: '98',
+        label: 'Course Material',
+      },
+      {
+        key: '89',
+        label: 'Course Progress',
       },
     ],
   },
   {
     key: 'sub2',
-    label: 'Navigation Two',
+    label: 'Messages',
     icon: <AppstoreOutlined />,
     children: [
       {
         key: '9',
-        label: 'Option 9',
+        label: 'Inbox',
       },
       {
         key: '10',
-        label: 'Option 10',
+        label: 'Send Message',
       },
       {
-        key: 'sub3',
-        label: 'Submenu',
-        children: [
-          {
-            key: '11',
-            label: 'Option 11',
-          },
-          {
-            key: '12',
-            label: 'Option 12',
-          },
-        ],
+        key: '0',
+        label: 'Notifications',
       },
     ],
   },
