@@ -1,125 +1,171 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
-  AppstoreOutlined,
-  ContainerOutlined,
-  DesktopOutlined,
-  MailOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  PieChartOutlined,
-} from '@ant-design/icons';
-import { Button, Menu } from 'antd';
-const items = [
-  {
-    key: '1',
-    icon: <PieChartOutlined />,
-    label: 'Dashboard',
-    children: [
-      {
-        key: '29',
-        label: 'Courses Enrolled',
-      },
-      {
-        key: '0',
-        label: 'Pending Assignments',
-      },
-      {
-        key: '19',
-        label: 'Recent Grades',
-      },
-    ],
-  },
-  {
-    key: 'sub9',
-    label: 'Assignments',
-    icon: <DesktopOutlined />,
-    children: [
-      {
-        key: '99',
-        label: 'View Assignments',
-      },
-      {
-        key: '91',
-        label: 'Pending Assignments',
-      },
-      {
-        key: '11',
-        label: 'Submit Assignment',
-      },
-      {
-        key: '12',
-        label: 'Past Assignments',
-      },
-    ],
-  },
-  {
-    key: 'sub8',
-    label: 'Courses',
-    icon: <AppstoreOutlined />,
-    children: [
-      {
-        key: '21',
-        label: 'My Courses',
-      },
-      {
-        key: '98',
-        label: 'Course Material',
-      },
-      {
-        key: '89',
-        label: 'Course Progress',
-      },
-    ],
-  },
-  {
-    key: 'sub2',
-    label: 'Messages',
-    icon: <AppstoreOutlined />,
-    children: [
-      {
-        key: '9',
-        label: 'Inbox',
-      },
-      {
-        key: '10',
-        label: 'Send Message',
-      },
-      {
-        key: '0',
-        label: 'Notifications',
-      },
-    ],
-  },
-];
-const MenuBar = () => {
+  Layout,
+  Menu,
+  Avatar,
+  Typography,
+  Dropdown,
+  Button
+} from "antd";
+import {
+  PlayCircleOutlined,
+  HistoryOutlined,
+  StarOutlined,
+  SettingOutlined,
+  BookOutlined,
+  FileTextOutlined,
+  CaretDownOutlined
+} from "@ant-design/icons";
+
+const Sidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
+  const [selectedKeys, setSelectedKeys] = useState(["playground"]);
+
+  const enterpriseMenu = [
+    {
+      key: "1",
+      label: "Switch Enterprise",
+    },
+    {
+      key: "2",
+      label: "Manage Enterprises",
+    },
+  ];
+
+  const userMenu = [
+    {
+      key: "1",
+      label: "Profile Settings",
+    },
+    {
+      key: "2",
+      label: "Sign Out",
+    },
+  ];
+
   return (
-    <div
-      style={{
-        width: 256,
-      }}
+    <Layout.Sider
+      theme="dark"
+      width={260}
+      collapsible
+      collapsed={collapsed}
+      onCollapse={(value) => setCollapsed(value)}
+      style={{ height: "100vh" }}
     >
-      <Button
-        type="primary"
-        onClick={toggleCollapsed}
-        style={{
-          marginBottom: 16,
-        }}
-      >
-        {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-      </Button>
-      <Menu
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
-        mode="inline"
-        theme="light"
-        inlineCollapsed={collapsed}
-        items={items}
-      />
-    </div>
+      {/* Enterprise Dropdown */}
+      <div style={{ padding: "16px" }}>
+        <Dropdown menu={{ items: enterpriseMenu }} trigger={["click"]}>
+          <Button type="text" style={{ width: "100%", color: "white" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                <div
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    backgroundColor: "#1890ff",
+                    borderRadius: "50%",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    color: "white",
+                  }}
+                >
+                  A
+                </div>
+                {!collapsed && (
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                    <Typography.Text strong style={{ color: "white" }}>
+                      Acme Inc
+                    </Typography.Text>
+                    <Typography.Text style={{ color: "#bfbfbf", fontSize: "12px" }}>
+                      Enterprise
+                    </Typography.Text>
+                  </div>
+                )}
+              </div>
+              {!collapsed && <CaretDownOutlined />}
+            </div>
+          </Button>
+        </Dropdown>
+      </div>
+
+      {/* Menu Items */}
+      <div style={{ marginTop: "16px" }}>
+        <Typography.Text style={{ paddingLeft: "24px", color: "#bfbfbf", fontSize: "12px" }}>
+          Platform
+        </Typography.Text>
+        <Menu
+          theme="dark"
+          mode="inline"
+          selectedKeys={selectedKeys}
+          onSelect={({ selectedKeys }) => setSelectedKeys(selectedKeys)}
+          items={[
+            {
+              key: "playground",
+              icon: <PlayCircleOutlined />,
+              label: "Playground",
+              children: [
+                {
+                  key: "history",
+                  icon: <HistoryOutlined />,
+                  label: "History",
+                },
+                {
+                  key: "starred",
+                  icon: <StarOutlined />,
+                  label: "Starred",
+                },
+                {
+                  key: "settings",
+                  icon: <SettingOutlined />,
+                  label: "Settings",
+                },
+              ],
+            },
+            {
+              key: "models",
+              icon: <BookOutlined />,
+              label: "Models",
+            },
+            {
+              key: "documentation",
+              icon: <FileTextOutlined />,
+              label: "Documentation",
+            },
+            {
+              key: "settings",
+              icon: <SettingOutlined />,
+              label: "Settings",
+            },
+          ]}
+        />
+      </div>
+
+      {/* User Dropdown */}
+      <div style={{ position: "absolute", bottom: "0", width: "100%", padding: "16px" }}>
+        <Dropdown menu={{ items: userMenu }} trigger={["click"]}>
+          <Button type="text" style={{ width: "100%", color: "white" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                <Avatar size="small" src="/placeholder.svg" />
+                {!collapsed && (
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                    <Typography.Text strong style={{ color: "white" }}>
+                      shadcn
+                    </Typography.Text>
+                    <Typography.Text style={{ color: "#bfbfbf", fontSize: "12px" }}>
+                      m@example.com
+                    </Typography.Text>
+                  </div>
+                )}
+              </div>
+              {!collapsed && <CaretDownOutlined />}
+            </div>
+          </Button>
+        </Dropdown>
+      </div>
+    </Layout.Sider>
   );
 };
-export default MenuBar;
+
+export default Sidebar;

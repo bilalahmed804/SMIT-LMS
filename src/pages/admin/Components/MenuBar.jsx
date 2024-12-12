@@ -89,6 +89,14 @@ const MenuBar = () => {
         width: 256,
       }}
     >
+      <Menu
+        defaultSelectedKeys={['1']}
+        defaultOpenKeys={['sub1']}
+        mode="inline"
+        theme="light"
+        inlineCollapsed={collapsed}
+        items={items}
+      />
       <Button
         type="primary"
         onClick={toggleCollapsed}
@@ -98,14 +106,6 @@ const MenuBar = () => {
       >
         {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
       </Button>
-      <Menu
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
-        mode="inline"
-        theme="light"
-        inlineCollapsed={collapsed}
-        items={items}
-      />
     </div>
   );
 };
