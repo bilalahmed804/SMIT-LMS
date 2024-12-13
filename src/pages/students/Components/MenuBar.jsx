@@ -95,7 +95,7 @@ const Sidebar = () => {
           Platform
         </Typography.Text>
         <Menu
-          theme="dark"
+          theme="light"
           mode="inline"
           selectedKeys={selectedKeys}
           onSelect={({ selectedKeys }) => setSelectedKeys(selectedKeys)}
