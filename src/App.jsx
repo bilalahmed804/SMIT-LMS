@@ -10,9 +10,10 @@ function App() {
   return (
     <div className="w-full">
       <Routes>
-        <Route path='admin' element={<Admin/>}/>
-        <Route path='teacher' element={<Teacher/>}/>
-        <Route path='student' element={<Students/>}/>
+        <Route path='/admin' element={<Admin/>}/>
+        <Route path='/teacher' element={<Teacher/>}/>
+        <Route path='/student/dashboard' element={<Students/>}/>
+        <Route path='/student/:select' element={<Students/>}/>
       </Routes>
     </div>  
   )
