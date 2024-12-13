@@ -1,10 +1,10 @@
-import MenuBar from "../admin/Components/MenuBar";
+import SideBarMenu from "./Components/SideBarMenu";
 
 export default function Students(){
     return(
         <div className="flex">
         <div>
-        <MenuBar/>
+        <SideBarMenu/>
         </div>
         <div>
         <h1>Student page</h1>
